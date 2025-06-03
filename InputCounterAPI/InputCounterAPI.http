@@ -1,0 +1,6 @@
+@InputCounterAPI_HostAddress = http://localhost:5210
+
+GET {{InputCounterAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
