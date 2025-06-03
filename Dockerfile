@@ -1,11 +1,6 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
-
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-
 COPY . .
-
-# Build the app
+RUN dotnet restore
 RUN dotnet build --configuration Release
-
-# Start the application
 CMD ["dotnet", "run"]
