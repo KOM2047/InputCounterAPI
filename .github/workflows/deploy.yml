@@ -1,0 +1,30 @@
+name: Deploy API to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0'
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Build the Project
+        run: dotnet build --configuration Release
+
+      - name: Deploy to Render
+        run: |
+          echo "Deploying API..."
+          # Add Render-specific deployment commands here
